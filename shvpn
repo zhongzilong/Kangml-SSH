@@ -22,7 +22,7 @@ kangml_Install(){
 fi
 	echo "正在安装kangml守护脚本" && echo
 	cp ${AD}/shvpn /bin/shvpn
-	chmod 0777 /bin/shvpn			
+	chmod 777 /bin/shvpn			
 	echo '	while true
 		do
 			Date=`date +%Y年%m月%d日%H时%M分%S秒`
@@ -55,7 +55,7 @@ fi
 			fi			
 		sleep 30
 		done' > /bin/sh_openvpn
-chmod 0777 /bin/sh_openvpn
+chmod 777 /bin/sh_openvpn
 
 	echo "kangml守护脚本安装完成" && echo
 }

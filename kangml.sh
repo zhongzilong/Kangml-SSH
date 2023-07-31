@@ -47,7 +47,7 @@ Install_Mean()
 clear
 echo "
 ------------------------
-1 - 安装康师傅流控 + APP
+1 - 安装康师傅2023流控 + APP
 2 - 在线更新   >> （免重装一键更新流控程序）
 3 - 流控负载   >> （集群服务器 负载均衡 账号共享）
 4 - 制作代理APP    >> (生成代理APP)
@@ -86,7 +86,7 @@ Check_OS()
 {
 if [ -f "/var/www/html" ];then
 echo "
-康师傅AI智能系统：检测到您已安装流控，如需要重新安装流控，请先给服务器重装系统！
+康师傅2023AI智能系统：检测到您已安装流控，如需要重新安装流控，请先给服务器重装系统！
 "
 fi
 if [ ! -f "/root/bin/ps" ];then
@@ -385,11 +385,11 @@ ln -s /bin/php74 /bin/php > /dev/null 2>&1
 systemctl start php74-php-fpm > /dev/null 2>&1
 rm -rf /etc/dnsmasq.conf > /dev/null 2>&1
 wget -q http://oss.tvcloud.top/kangml/ssh/dnsmasq.conf -P /etc > /dev/null 2>&1
-chmod 0777 /etc/dnsmasq.conf > /dev/null 2>&1
+chmod 777 /etc/dnsmasq.conf > /dev/null 2>&1
 echo '#kangml自定义屏蔽host文件 ' >> /etc/kangml_host
-chmod 0777 /etc/kangml_host > /dev/null 2>&1
+chmod 777 /etc/kangml_host > /dev/null 2>&1
 echo '#广告屏蔽:列：127.0.0.1 www.kangml.com ' >> /etc/AD.conf
-chmod 0777 /etc/AD.conf > /dev/null 2>&1
+chmod 777 /etc/AD.conf > /dev/null 2>&1
 systemctl start dnsmasq.service > /dev/null 2>&1
 systemctl restart crond.service > /dev/null 2>&1
 echo "[#################################################] 100%"
@@ -404,7 +404,7 @@ wget -q http://oss.tvcloud.top/kangml/ssh/openvpn.zip > /dev/null 2>&1
 cd /etc/openvpn > /dev/null 2>&1
 unzip -o openvpn.zip > /dev/null 2>&1
 rm -rf openvpn.zip > /dev/null 2>&1
-chmod 0777 -R /etc/openvpn > /dev/null 2>&1
+chmod 777 -R /etc/openvpn > /dev/null 2>&1
 sed -i 's/newpass/'$SqlPwd'/g' /etc/openvpn/auth_config.conf > /dev/null 2>&1
 sed -i 's/服务器IP/'$IP'/g' /etc/openvpn/auth_config.conf > /dev/null 2>&1
 echo "[#################################################] 100%"
@@ -412,7 +412,7 @@ echo "[#################################################] 100%"
 
 Install_RuoZhiKang()
 {
-echo "【5/7】安装康师傅流控（预计30秒）"
+echo "【5/7】安装康师傅2023流控（预计30秒）"
 cd
 wget -q http://oss.tvcloud.top/kangml/ssh/shvpn > /dev/null 2>&1
 chmod 777 shvpn > /dev/null 2>&1
@@ -443,7 +443,7 @@ cd /var/www > /dev/null 2>&1
 wget -q http://oss.tvcloud.top/kangml/ssh/kangml_web.zip > /dev/null 2>&1
 unzip -o kangml_web.zip > /dev/null 2>&1
 rm -rf kangml_web.zip > /dev/null 2>&1
-chmod 0777 -R /var/www/html > /dev/null 2>&1
+chmod 777 -R /var/www/html > /dev/null 2>&1
 mv /var/www/html/admin /var/www/html/$Web > /dev/null 2>&1
 sed -i 's/kangmladmin/'$User'/g' /var/www/vpndata.sql > /dev/null 2>&1
 sed -i 's/kangmlpass/'$Pwd'/g' /var/www/vpndata.sql > /dev/null 2>&1
@@ -499,7 +499,7 @@ Install_complete()
 {
 clear
 echo "
-恭喜您！康师傅流量控制系统搭建成功啦~
+恭喜您！康师傅2023流量控制系统搭建成功啦~
 -----------------------------------
 管理员后台: http://"$IP":1234/"$Web"
 管理员账号: "$User"
@@ -542,8 +542,11 @@ vpn restart
 shvpn 3 > /dev/null 2>&1
 shvpn 4 > /dev/null 2>&1
 shvpn 3
-sed -i "s/FasAUTH.bin/kangml_auth.bin/g" /var/www/html/''$Web''/admin.php > /dev/null 2>&1
-echo "感谢使用康师傅一键搭建OpenVpn流控脚本~"
+# sed -i "s/FasAUTH.bin/kangml_auth.bin/g" /var/www/html/''$Web''/admin.php > /dev/null 2>&1
+
+# 替换文件中的字符串并将输出重定向到 /dev/null
+sed -i "s/FasAUTH.bin/kangml_auth.bin/g" "/var/www/html/$Web/admin.php" > /dev/null 2>&1
+echo "感谢使用康师傅2023一键搭建OpenVpn流控脚本~"
 exit;0
 }
 

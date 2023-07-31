@@ -1,5 +1,5 @@
 # openvpn-kangml4.1
-康师傅OpenVPN流控4.1纪念版Shell脚本源码<br>
+康师傅2023OpenVPN流控4.1纪念版Shell脚本源码<br>
 
 [PHP源码在这里](https://github.com/k-skye/OpenVpn-Flow-Control-System)
 
